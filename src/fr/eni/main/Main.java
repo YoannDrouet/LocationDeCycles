@@ -1,9 +1,6 @@
 package fr.eni.main;
 
-import fr.eni.bo.Cycle;
-import fr.eni.bo.Gyropode;
-import fr.eni.bo.Gyroroue;
-import fr.eni.bo.Velo;
+import fr.eni.bo.*;
 
 import java.time.LocalDate;
 
@@ -24,8 +21,14 @@ public class Main {
             tabCycle[i].afficher();
         }
 
-        tabCycle[0].location(90);
-        tabCycle[0].location(100);
-        tabCycle[0].location(100);
+        Adresse adresse = new Adresse(12, null, "rue Geoffroy Drouet", 4400, "Nantes");
+        Loueur yoann = new Loueur("Drouet", "Yoann", LocalDate.of(1995,7,27), "0641546650", adresse);
+
+        //yoann.location(tabCycle[0], 90);
+        yoann.location(tabCycle[0],100);
+        //yoann.location(tabCycle[0],100);
+
+        yoann.rendreCycle(tabCycle[0]);
+        yoann.rendreCycle(tabCycle[0]);
     }
 }

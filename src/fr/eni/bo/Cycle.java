@@ -13,8 +13,8 @@ import static java.time.LocalDate.*;
  *     <li><b>modele :</b> la modèle du cycle</li>
  *     <li><b>dateAchat :</b> la date à laquelle le cycle à été acheté</li>
  *     <li><b>tarif :</b> le tarif de location du cycle</li>
- *     <li><b>location :</b> faux si le cycle est disponible, vrai s'il est déjà loué</li>
  *     <li><b>caution :</b> la caution de location</li>
+ *     <li><b>loueur :</b> le loueur du cycle</li>
  * </ul>
  */
 public abstract class Cycle {
@@ -23,8 +23,8 @@ public abstract class Cycle {
     protected String modele;
     protected LocalDate dateAchat;
     protected float tarif;
-    protected boolean location;
     protected float caution;
+    protected Loueur loueur;
 
     public Cycle(String typeCycle, String marque, String modele, LocalDate dateAchat, float tarif, float caution) {
         this.typeCycle = typeCycle;
@@ -32,28 +32,27 @@ public abstract class Cycle {
         this.modele = modele;
         this.dateAchat = dateAchat;
         this.tarif = tarif;
-        this.location = false;
         this.caution = caution;
+        this.loueur = null;
+    }
+
+    public Loueur getLoueur() {
+        return loueur;
+    }
+
+    public void setLoueur(Loueur loueur) {
+        this.loueur = loueur;
+    }
+
+    public float getCaution() {
+        return caution;
+    }
+
+    public String getTypeCycle() {
+        return typeCycle;
     }
 
     public void afficher(){
-        System.out.printf("%s %s %s (%d an) ",this.typeCycle, this.marque, this.modele, ChronoUnit.YEARS.between(dateAchat, now()));
-    }
-
-    public void location(float caution){
-        if (this.location == false){
-            if (verifCaution(caution)){
-                System.out.println("Location ok");
-                this.location = true;
-            }else{
-                System.err.printf("Veuillez payer la caution de %.2f€%n", this.caution);
-            }
-        }else {
-            System.err.printf("%s indisponible%n", this.typeCycle);
-        }
-    }
-
-    public boolean verifCaution(float caution){
-        return (caution>=this.caution ? true : false);
+        System.out.printf("%s %s %s (%d an) ",this.typeCycle, this.marque, this.modele, this.dateAchat.until(now()).getYears());
     }
 }

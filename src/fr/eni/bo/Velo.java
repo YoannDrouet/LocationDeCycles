@@ -1,4 +1,4 @@
-package fr.eni;
+package fr.eni.bo;
 
 import java.time.LocalDate;
 
@@ -22,6 +22,6 @@ public class Velo extends Cycle {
     @Override
     public void afficher() {
         super.afficher();
-        System.out.printf("%d vitesses %.2f€/heure", this.vitesses, this.tarif);
+        System.out.printf("%d vitesses %.2f€/heure%n", this.vitesses, this.tarif);
     }
 }

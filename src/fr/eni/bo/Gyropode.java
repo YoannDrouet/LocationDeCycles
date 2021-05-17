@@ -1,11 +1,11 @@
-package fr.eni;
+package fr.eni.bo;
 
 import java.time.LocalDate;
 
 /**
  * Classe Gyropode hériant de la classe CycleElectrique
  * <ul>
- *     <li><b>tailleMin :</b> la taille minimum pour utiliser ce gyropode</li>
+ *     <li><b>tailleMin :</b> la taille minimum (en cm) pour utiliser ce gyropode</li>
  *     <li><b>tarifGyroropode :</b> le tarif de location du gyroropode</li>
  * </ul>
  */

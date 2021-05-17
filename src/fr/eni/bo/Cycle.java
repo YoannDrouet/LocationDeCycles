@@ -1,6 +1,9 @@
-package fr.eni;
+package fr.eni.bo;
 
 import java.time.LocalDate;
+import java.time.temporal.ChronoUnit;
+
+import static java.time.LocalDate.*;
 
 /**
  * Classe abstraite Cycle<br>
@@ -27,15 +30,7 @@ public abstract class Cycle {
         this.tarif = tarif;
     }
 
-    /**
-     * Permet de calculer depuis combien de temps le cycle à été acheté
-     * @return le nombre d'année depuis la date d'achat
-     */
-    public int acheterDepuis(){
-        return LocalDate.now().getYear()-dateAchat.getYear();
-    }
-
     public void afficher(){
-        System.out.printf("%s %s %s (%d) ",this.typeCycle, this.marque, this.modele, acheterDepuis());
+        System.out.printf("%s %s %s (%d an) ",this.typeCycle, this.marque, this.modele, ChronoUnit.YEARS.between(dateAchat, now()));
     }
 }

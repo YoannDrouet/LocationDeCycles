@@ -7,15 +7,17 @@ import java.time.LocalDate;
  * <ul>
  *     <li><b>tailleMin :</b> la taille minimum (en cm) pour utiliser ce gyropode</li>
  *     <li><b>tarifGyroropode :</b> le tarif de location du gyroropode</li>
+ *     <li><b>cautionGyroropode :</b> la caution à payer pour louer le gyroropode</li>
  * </ul>
  */
 public class Gyropode extends CycleElectrique {
 
     private short tailleMin;
     private static final float tarifGyropode = (float)29.9;
+    private static final float cautionGyropode = (float)350;
 
     public Gyropode(String marque, String modele, LocalDate dateAchat, short autonomie, short tailleMin) {
-        super("Gyroropode", marque, modele, dateAchat, tarifGyropode, autonomie);
+        super("Gyroropode", marque, modele, dateAchat, tarifGyropode, cautionGyropode, autonomie);
         this.tailleMin = tailleMin;
     }
 

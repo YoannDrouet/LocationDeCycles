@@ -11,8 +11,8 @@ import java.time.LocalDate;
 public abstract class CycleElectrique extends Cycle{
     protected short autonomie;
 
-    public CycleElectrique(String typeCycle, String marque, String modele, LocalDate dateAchat, float tarif, short autonomie) {
-        super(typeCycle, marque, modele, dateAchat, tarif);
+    public CycleElectrique(String typeCycle, String marque, String modele, LocalDate dateAchat, float tarif,float caution, short autonomie) {
+        super(typeCycle, marque, modele, dateAchat, tarif, caution);
         this.autonomie = autonomie;
     }
 
